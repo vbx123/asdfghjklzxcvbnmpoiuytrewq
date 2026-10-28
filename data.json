@@ -1,0 +1,43 @@
+{
+  "groomName": "أحمد",
+  "brideName": "ملك",
+  "fullNamesTitle": "أحمد & ملك",
+  "heroSubtitle": "دعوة زفاف مباركة",
+  "welcomeOverlayText": "يسعدنا حضوركم لمشاركة فرحتنا الكبرى",
+  "openButtonText": "افتح دعوتك",
+  "welcomeParagraph": "في ليلة من ليالي العمر، وبحضور من نحب، نتشرف بدعوتكم لحضور حفل زفافنا المبروك لنشرك معاً أجمل لحظات العمر.",
+  "weddingDate": "2026-12-31T20:00:00",
+  "weddingTime": "الثامنة مساءً",
+  "hallName": "قاعة اللوتس الكبرى",
+  "hallAddress": "القاهرة، مصر",
+  "googleMapsUrl": "https://maps.google.com/?q=Cairo",
+  "audioFile": "audio/a1.mp3",
+  "googleScriptUrl": "",
+  "sections": {
+    "memories": true,
+    "details": true,
+    "wishes": true
+  },
+  "memories": [
+    {
+      "image": "images/memory-01.jpg",
+      "caption": "بداية الحكاية"
+    },
+    {
+      "image": "images/memory-02.jpg",
+      "caption": "أجمل اللحظات"
+    },
+    {
+      "image": "images/memory-03.jpg",
+      "caption": "معاً نبني المستقبل"
+    },
+    {
+      "image": "images/memory-04.jpg",
+      "caption": "فرحة العمر"
+    }
+  ],
+  "messages": {
+    "successWish": "تم إرسال تهنئتك بنجاح!",
+    "errorWish": "حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً."
+  }
+}
