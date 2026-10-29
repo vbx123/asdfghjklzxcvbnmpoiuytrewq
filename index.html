@@ -19,7 +19,6 @@
             --ivory: #f9f8f3;
             --text-main: #f0ede6;
             --text-muted: #b3b0a5;
-            --transition-smooth: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         * {
@@ -40,29 +39,6 @@
         h1, h2, h3, .script-font {
             font-family: 'Amiri', serif;
         }
-
-        /* شاشة التحميل الأولية */
-        #page-loader {
-            position: fixed;
-            inset: 0;
-            background: var(--bg-dark);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s ease;
-        }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(212, 175, 55, 0.2);
-            border-top-color: var(--gold-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* المقدمة السينمائية */
         #cinematic-intro {
@@ -438,14 +414,6 @@
             margin-top: 10px;
         }
 
-        /* التوافق مع تقليل الحركة */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-
         @media (max-width: 600px) {
             .intro-names { font-size: 2.2rem; }
             .couple-names { font-size: 2rem; }
@@ -455,18 +423,12 @@
 </head>
 <body>
 
-    <!-- شاشة التحميل الأولية -->
-    <div id="page-loader">
-        <div class="spinner"></div>
-        <p style="color: var(--gold-light); font-size: 0.95rem;">جاري تحميل تفاصيل الدعوة...</p>
-    </div>
-
     <!-- المقدمة السينمائية -->
     <div id="cinematic-intro">
         <div class="cinematic-glow"></div>
         <div class="intro-content">
-            <p class="intro-subtitle" id="intro-sub-text">بسم الله نبدأ حكاية جميلة</p>
-            <h1 class="intro-names" id="intro-names-text">العروسان</h1>
+            <p class="intro-subtitle">بسم الله نبدأ حكاية جميلة</p>
+            <h1 class="intro-names" id="intro-couple-names">عبدالله & سارة</h1>
             <button class="btn-cinematic" id="open-invite-btn">افتح دعوة الزفاف</button>
         </div>
         <button class="skip-intro" id="skip-intro-btn">تخطي المقدمة</button>
@@ -483,10 +445,10 @@
     <main id="main-content">
         <!-- قسم العروسين -->
         <section id="hero-section">
-            <p class="invitation-text" id="invitation-header-msg">بكل الحب والفرح، ندعوكم لمشاركتنا أجمل لحظات العمر</p>
+            <p class="invitation-text">بكل الحب وفرحة العمر، تتشرف أسرتا العريسين بدعوتكم لحضور حفل زفافنا المبارك، ونسعد بمشاركتكم أجمل لحظات العمر التي لا تنسى.</p>
             <div class="gold-divider"></div>
-            <h2 class="couple-names" id="main-couple-names">أحمد & فاطمة</h2>
-            <p class="invitation-text" id="main-invitation-body">يسرنا حضوركم ليلتنا العمرية المباركة...</p>
+            <h2 class="couple-names" id="main-couple-names">عبدالله & سارة</h2>
+            <p class="invitation-text">يسرنا حضوركم ليلتنا العمرية المباركة...</p>
         </section>
 
         <!-- العد التنازلي -->
@@ -521,22 +483,22 @@
             <div class="details-grid">
                 <div class="detail-card">
                     <h3>التاريخ</h3>
-                    <p id="detail-date">--/--/----</p>
+                    <p id="detail-date">31 ديسمبر 2026</p>
                 </div>
                 <div class="detail-card">
                     <h3>التوقيت</h3>
-                    <p id="detail-time">--:--</p>
+                    <p id="detail-time">08:00 مساءً</p>
                 </div>
                 <div class="detail-card">
                     <h3>القاعة</h3>
-                    <p id="detail-hall">اسم القاعة</p>
+                    <p>قاعة اللوتس الكبرى</p>
                 </div>
                 <div class="detail-card">
                     <h3>العنوان</h3>
-                    <p id="detail-address">عنوان المكان</p>
+                    <p>الرياض، طريق الملك فهد، حي المروج</p>
                 </div>
             </div>
-            <a href="#" id="map-link-btn" class="map-btn" target="_blank" style="display: none;">افتح الموقع على خرائط Google</a>
+            <a href="https://maps.google.com/?q=Riyadh" id="map-link-btn" class="map-btn" target="_blank">افتح الموقع على خرائط Google</a>
         </section>
 
         <!-- معرض الصور -->
@@ -544,7 +506,10 @@
             <h2 class="section-title">من ذكرياتنا</h2>
             <div class="gold-divider"></div>
             <div class="gallery-grid" id="gallery-container">
-                <!-- يتم تعبئتها ديناميكياً -->
+                <div class="gallery-item"><img src="images/photo1.jpg" alt="صورة 1" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/photo2.jpg" alt="صورة 2" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/photo3.jpg" alt="صورة 3" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/photo4.jpg" alt="صورة 4" loading="lazy"></div>
             </div>
         </section>
 
@@ -559,7 +524,7 @@
                 <div class="status-msg" id="wish-status"></div>
             </form>
             <div class="wishes-list" id="wishes-list-container">
-                <p style="color: var(--text-muted); text-align: center;">جاري تحميل التهاني...</p>
+                <p style="color: var(--text-muted); text-align: center;">كن أول المهنئين!</p>
             </div>
         </section>
     </main>
@@ -571,102 +536,17 @@
     </div>
 
     <!-- عنصر الصوت الخلفي -->
-    <audio id="bg-audio" loop preload="auto"></audio>
+    <audio id="bg-audio" loop preload="auto" src="audio/wedding-melody.mp3"></audio>
 
     <script>
-        // إعدادات افتراضية احتياطية في حال تعذر تحميل data.json
-        let weddingData = {
-            groomName: "أحمد",
-            brideName: "فاطمة",
+        // إعدادات البيانات المباشرة
+        const weddingConfig = {
             weddingDate: "2026-12-31T20:00:00",
-            hallName: "قاعة الملكي للأفراح",
-            address: "شارع الاحتفالات الرئيسي، المدينة",
-            googleMapsUrl: "",
-            invitationText: "يسرنا حضوركم ليلتنا العمرية المباركة ومشاركتنا فرحة العمر.",
-            googleScriptUrl: "",
-            audioSrc: "",
-            images: []
+            googleScriptUrl: "" // ضع رابط السكريبت هنا لاحقًا إن أردت تفعيل الحفظ السحابي
         };
 
         let audioEl = document.getElementById('bg-audio');
         let isMusicPlaying = false;
-
-        // جلب البيانات من ملف data.json
-        async function loadWeddingData() {
-            try {
-                let response = await fetch('data.json');
-                if (response.ok) {
-                    let data = await response.json();
-                    weddingData = { ...weddingData, ...data };
-                }
-            } catch (err) {
-                console.warn("تعذر تحميل data.json، يتم استخدام البيانات الافتراضية.", err);
-            } finally {
-                initPageContent();
-                document.getElementById('page-loader').style.opacity = '0';
-                setTimeout(() => document.getElementById('page-loader').remove(), 600);
-            }
-        }
-
-        function initPageContent() {
-            // تحديث النصوص
-            document.getElementById('intro-names-text').textContent = `${weddingData.groomName} & ${weddingData.brideName}`;
-            document.getElementById('main-couple-names').textContent = `${weddingData.groomName} & ${weddingData.brideName}`;
-            document.getElementById('main-invitation-body').textContent = weddingData.invitationText;
-            document.getElementById('detail-hall').textContent = weddingData.hallName;
-            document.getElementById('detail-address').textContent = weddingData.address;
-
-            // تنسيق التاريخ والوقت
-            if (weddingData.weddingDate) {
-                let d = new Date(weddingData.weddingDate);
-                if (!isNaN(d)) {
-                    document.getElementById('detail-date').textContent = d.toLocaleDateString('ar-SA', { year: 'numeric', month: 'long', day: 'numeric' });
-                    document.getElementById('detail-time').textContent = d.toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' });
-                }
-            }
-
-            // زر خرائط جوجل
-            let mapBtn = document.getElementById('map-link-btn');
-            if (weddingData.googleMapsUrl && weddingData.googleMapsUrl.trim() !== "") {
-                mapBtn.href = weddingData.googleMapsUrl;
-                mapBtn.style.display = 'inline-block';
-            } else {
-                mapBtn.style.display = 'none';
-            }
-
-            // إعداد الموسيقى
-            if (weddingData.audioSrc && weddingData.audioSrc.trim() !== "") {
-                audioEl.src = weddingData.audioSrc;
-            } else {
-                document.getElementById('music-toggle-btn').style.display = 'none';
-            }
-
-            // معرض الصور
-            let galleryContainer = document.getElementById('gallery-container');
-            galleryContainer.innerHTML = '';
-            if (weddingData.images && weddingData.images.length > 0) {
-                weddingData.images.forEach(imgSrc => {
-                    let item = document.createElement('div');
-                    item.className = 'gallery-item';
-                    let img = document.createElement('img');
-                    img.src = imgSrc;
-                    img.alt = "صورة الزفاف";
-                    img.loading = "lazy";
-                    item.appendChild(img);
-                    
-                    item.addEventListener('click', () => openLightbox(imgSrc));
-                    galleryContainer.appendChild(item);
-                });
-            } else {
-                document.getElementById('gallery-section').style.display = 'none';
-            }
-
-            // بدء العد التنازلي
-            startCountdown(weddingData.weddingDate);
-
-            // جلب التهاني
-            fetchWishes();
-        }
 
         // تفاعلات المقدمة السينمائية
         function enterInvitation() {
@@ -675,13 +555,10 @@
             intro.classList.add('hidden');
             main.classList.add('visible');
             
-            // محاولة تشغيل الموسيقى إذا وافق المستخدم
-            if (weddingData.audioSrc && !isMusicPlaying) {
-                audioEl.play().then(() => {
-                    isMusicPlaying = true;
-                    document.getElementById('music-toggle-btn').textContent = '🔇';
-                }).catch(e => console.log("التشغيل التلقائي محظور حتى تفاعل آخر:", e));
-            }
+            audioEl.play().then(() => {
+                isMusicPlaying = true;
+                document.getElementById('music-toggle-btn').textContent = '🔇';
+            }).catch(e => console.log("التشغيل التلقائي يتطلب تفاعل المستخدم"));
         }
 
         document.getElementById('open-invite-btn').addEventListener('click', enterInvitation);
@@ -689,7 +566,6 @@
 
         // أزرار التحكم
         document.getElementById('music-toggle-btn').addEventListener('click', () => {
-            if (!weddingData.audioSrc) return;
             if (isMusicPlaying) {
                 audioEl.pause();
                 isMusicPlaying = false;
@@ -705,7 +581,7 @@
         document.getElementById('share-btn').addEventListener('click', () => {
             if (navigator.share) {
                 navigator.share({
-                    title: `دعوة زفاف ${weddingData.groomName} و ${weddingData.brideName}`,
+                    title: 'دعوة زفاف عبدالله وسارة',
                     url: window.location.href
                 }).catch(() => {});
             } else {
@@ -723,17 +599,13 @@
             let targetDate = new Date(dateString).getTime();
             let timerEl = document.getElementById('countdown-section');
 
-            if (isNaN(targetDate)) {
-                timerEl.style.display = 'none';
-                return;
-            }
+            if (isNaN(targetDate)) return;
 
-            let interval = setInterval(() => {
+            setInterval(() => {
                 let now = new Date().getTime();
                 let distance = targetDate - now;
 
                 if (distance < 0) {
-                    clearInterval(interval);
                     document.getElementById('days').textContent = "00";
                     document.getElementById('hours').textContent = "00";
                     document.getElementById('minutes').textContent = "00";
@@ -753,15 +625,19 @@
                 document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
             }, 1000);
         }
+        startCountdown(weddingConfig.weddingDate);
 
-        // نافذة تكبير الصور
+        // نافذة تكبير الصور (Lightbox)
         let lightbox = document.getElementById('lightbox');
         let lightboxImg = document.getElementById('lightbox-img');
 
-        function openLightbox(src) {
-            lightboxImg.src = src;
-            lightbox.classList.add('active');
-        }
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
         document.getElementById('lightbox-close-btn').addEventListener('click', () => {
             lightbox.classList.remove('active');
         });
@@ -769,41 +645,18 @@
             if (e.target === lightbox) lightbox.classList.remove('active');
         });
 
-        // دفتر التهاني والربط السحابي الآمن
-        async function fetchWishes() {
-            let container = document.getElementById('wishes-list-container');
-            if (!weddingData.googleScriptUrl || weddingData.googleScriptUrl.trim() === "") {
-                container.innerHTML = '<p style="color: var(--text-muted); text-align: center;">دفتر التهاني غير متصل حالياً (يرجى إعداد رابط Google Apps Script).</p>';
-                return;
-            }
-
-            try {
-                let res = await fetch(weddingData.googleScriptUrl);
-                let data = await res.json();
-                if (data && Array.isArray(data) && data.length > 0) {
-                    container.innerHTML = '';
-                    data.forEach(wish => {
-                        appendWishCard(wish.name, wish.message, container);
-                    });
-                } else {
-                    container.innerHTML = '<p style="color: var(--text-muted); text-align: center;">لا توجد تهاني حتى الآن. كن أول المهنئين!</p>';
-                }
-            } catch (err) {
-                container.innerHTML = '<p style="color: var(--text-muted); text-align: center;">تعذر جلب التهاني حالياً.</p>';
-            }
-        }
-
+        // دفتر التهاني
         function appendWishCard(name, message, container) {
             let card = document.createElement('div');
             card.className = 'wish-card';
             
             let author = document.createElement('div');
             author.className = 'wish-author';
-            author.textContent = name; // استخدام textContent لمنع حقن السكريات
+            author.textContent = name;
 
             let msg = document.createElement('div');
             msg.className = 'wish-msg';
-            msg.textContent = message; // استخدام textContent للأمان التام
+            msg.textContent = message;
 
             card.appendChild(author);
             card.appendChild(msg);
@@ -820,51 +673,30 @@
             let name = nameInput.value.trim();
             let message = msgInput.value.trim();
 
-            if (!name || !message) {
-                statusEl.style.color = '#ff6b6b';
-                statusEl.textContent = 'يرجى تعبئة جميع الحقول المطلوبة.';
-                return;
-            }
+            if (!name || !message) return;
 
-            if (!weddingData.googleScriptUrl || weddingData.googleScriptUrl.trim() === "") {
-                statusEl.style.color = '#ff6b6b';
-                statusEl.textContent = 'عذراً، خدمة حفظ التهاني غير مفعلة من قِبل المنظم حالياً.';
-                return;
-            }
+            // إضافة محلية فورية للتهنئة
+            let container = document.getElementById('wishes-list-container');
+            if(container.querySelector('p')) container.innerHTML = '';
+            appendWishCard(name, message, container);
 
-            submitBtn.disabled = true;
-            statusEl.style.color = var(--gold-light);
-            statusEl.textContent = 'جاري إرسال تهنئتك...';
+            statusEl.style.color = '#51cf66';
+            statusEl.textContent = 'تم إرسال تهنئتك بنجاح!';
+            nameInput.value = '';
+            msgInput.value = '';
 
-            try {
-                let response = await fetch(weddingData.googleScriptUrl, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, message })
-                });
-
-                // نظراً لقيود no-cors، نتحقق من النجاح المفترض أو نظهر رسالة الإرسال
-                statusEl.style.color = '#51cf66';
-                statusEl.textContent = 'تم إرسال تهنئتك بنجاح!';
-                nameInput.value = '';
-                msgInput.value = '';
-                
-                // إضافة محلية مؤقتة للتهنئة
-                let container = document.getElementById('wishes-list-container');
-                if(container.querySelector('p')) container.innerHTML = '';
-                appendWishCard(name, message, container);
-
-            } catch (err) {
-                statusEl.style.color = '#ff6b6b';
-                statusEl.textContent = 'حدث خطأ أثناء الإرسال، يجدر التحقق من الرابط.';
-            } finally {
-                submitBtn.disabled = false;
+            // إذا أردت إرسالها لـ Google Sheets مستقبلاً
+            if (weddingConfig.googleScriptUrl) {
+                try {
+                    await fetch(weddingConfig.googleScriptUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, message })
+                    });
+                } catch (err) {}
             }
         });
-
-        // تشغيل التحميل عند فتح الصفحة
-        window.addEventListener('DOMContentLoaded', loadWeddingData);
     </script>
 </body>
 </html>
